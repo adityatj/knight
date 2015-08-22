@@ -6,12 +6,17 @@
 	    <link rel="stylesheet" href="knight.css">
 	    <link href="favicon.ico" rel="icon" type="image/x-icon" />
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 	    <script src="knight.js"></script>
 	</head>
 
 	<body>
 	    <div class="container">
 	        <div class="game-title">The Knight's Plight</div>
+			<div class="intro">
+				<span class="intro-text">Help the knight overcome the odds!</span>
+				<a class="restart-button">New Game</a>
+			</div>
 	        <div class="game-container">
 	            <div class="game-message">
 	                <p></p>
@@ -19,12 +24,14 @@
 	                    <a class="keep-playing-button">Keep going</a>
 	                    <a class="retry-button">Try again</a>
 	                </div>
-	                <div class="social"></div>
+					<div class="social">
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://adityatj.github.io/knight/">Tweet</a>
+					</div>
 	            </div>
 	            <div class="grid-container">
 	            </div>
 	        </div>
-	        <div class="game-objective"><u>Objective</u>: The knight is placed at a random position on board when the game starts. Your goal is to cover all the tiles on the board (The tiles disappear once you've stepped on them) and finally return to your original position from where you've started. (Indicated by a red tile)</div>
+	        <div class="game-objective"><b><u>Objective</u></b>: The knight is placed at a random position on board when the game starts. Your goal is to cover all the tiles on the board by moving the knight (Standard chess 'L' move) and finally return to your original position from where you've started. (Indicated by a red tile). Also, the tiles disappear once the knight steps on them.</div>
 	    </div>
 	</body>
 

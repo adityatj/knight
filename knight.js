@@ -67,30 +67,66 @@ $(document).ready(function() {
     }
 
     function isNextMovePossible() {
+        var onlyRedTile;
         var el = $('#pos-' + (knightPosX + 2) + '-' + (knightPosY + 1));
-        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell')))
-            return true;
+        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
+            if(el.hasClass('red-tile'))
+                onlyRedTile = true;
+            else
+                return true;
+        }
         el = $('#pos-' + (knightPosX + 2) + '-' + (knightPosY - 1));
-        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell')))
-            return true;
+        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
+            if(el.hasClass('red-tile'))
+                onlyRedTile = true;
+            else
+                return true;
+        }
         el = $('#pos-' + (knightPosX - 2) + '-' + (knightPosY + 1));
-        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell')))
-            return true;
+        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
+            if(el.hasClass('red-tile'))
+                onlyRedTile = true;
+            else
+                return true;
+        }
         el = $('#pos-' + (knightPosX - 2) + '-' + (knightPosY - 1));
-        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell')))
-            return true;
+        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
+            if(el.hasClass('red-tile'))
+                onlyRedTile = true;
+            else
+                return true;
+        }
         el = $('#pos-' + (knightPosX + 1) + '-' + (knightPosY + 2));
-        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell')))
-            return true;
+        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
+            if(el.hasClass('red-tile'))
+                onlyRedTile = true;
+            else
+                return true;
+        }
         el = $('#pos-' + (knightPosX + 1) + '-' + (knightPosY - 2));
-        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell')))
-            return true;
+        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
+            if(el.hasClass('red-tile'))
+                onlyRedTile = true;
+            else
+                return true;
+        }
         el = $('#pos-' + (knightPosX - 1) + '-' + (knightPosY + 2));
-        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell')))
-            return true;
+        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
+            if(el.hasClass('red-tile'))
+                onlyRedTile = true;
+            else
+                return true;
+        }
         el = $('#pos-' + (knightPosX - 1) + '-' + (knightPosY - 2));
-        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell')))
-            return true;
+        if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
+            if(el.hasClass('red-tile'))
+                onlyRedTile = true;
+            else
+                return true;
+        }
+        if(onlyRedTile && $('.fade-to-black').size() != BOARD_MAX * BOARD_MAX - 6) {
+            return false;
+        }
         return false;
     }
 
@@ -104,6 +140,9 @@ $(document).ready(function() {
             initGrid();
         });
         $('a.retry-button').on('click', function(e){
+            initGrid();
+        });
+        $('a.restart-button').on('click', function(e){
             initGrid();
         });
         $('.grid-container').children().remove();

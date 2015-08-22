@@ -7,7 +7,7 @@ body {
     width: 510px;
 }
 .game-container {
-    margin-top: 60px;
+    margin-top: 30px;
     position: relative;
     /*padding: 8px;*/
     cursor: default;
@@ -134,7 +134,7 @@ body {
 }
 .game-message a {
     display: inline-block;
-    background: rgb(98, 150, 152);
+    background: rgb(85, 164, 167);
     border-radius: 3px;
     padding: 0 20px;
     text-decoration: none;
@@ -234,16 +234,38 @@ body {
     background-color: transparent;
     cursor: default;
 }
-
 .game-title, .game-objective {
     text-align: center;
-    color: whitesmoke;    
+    color: whitesmoke;
 }
-
 .game-title {
     font-size: 50px;
 }
-
 .game-objective {
+    margin-top: 20px;
     font-size: 17px;
+}
+.game-message .social {
+    margin-top: 40px;
+}
+.restart-button {
+    display: inline-block;
+    background: rgb(85, 164, 167);
+    border-radius: 3px;
+    padding: 0 14px;
+    text-decoration: none;
+    color: #f9f6f2;
+    height: 40px;
+    line-height: 42px;
+    cursor: pointer;
+    text-align: center;
+}
+.intro {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.intro .intro-text {
+    color: whitesmoke;
+    margin-right: 10px;
 }
