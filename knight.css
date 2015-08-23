@@ -234,7 +234,7 @@ body {
     background-color: transparent;
     cursor: default;
 }
-.game-title, .game-objective {
+.game-title, .game-objective, .foot-notes {
     text-align: center;
     color: whitesmoke;
 }
@@ -244,6 +244,10 @@ body {
 .game-objective {
     margin-top: 20px;
     font-size: 17px;
+}
+.game-objective .objective-title {
+    color: khaki;
+    font-weight: bold;
 }
 .game-message .social {
     display: inline-block;
@@ -269,4 +273,9 @@ body {
 .intro .intro-text {
     color: whitesmoke;
     margin-right: 10px;
+}
+
+.foot-notes .me {
+    color: khaki;
+    text-decoration: none;
 }
