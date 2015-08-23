@@ -15,6 +15,11 @@ $(document).ready(function() {
     //init grid
     initGrid();
 
+    //assign handlers to keep playing and try again buttons
+    $('a.keep-playing-button').bind('click', initGrid);
+    $('a.retry-button').bind('click', initGrid);
+    $('a.restart-button').bind('click',initGrid);
+    
     function makeMove(e) {
 
         var el = $(e.target);
@@ -135,17 +140,7 @@ $(document).ready(function() {
         return (knightPosX + 2 == x && knightPosY + 1 == y) || (knightPosX + 2 == x && knightPosY - 1 == y) || (knightPosX - 2 == x && knightPosY + 1 == y) || (knightPosX - 2 == x && knightPosY - 1 == y) || (knightPosX + 1 == x && knightPosY + 2 == y) || (knightPosX + 1 == x && knightPosY - 2 == y) || (knightPosX - 1 == x && knightPosY + 2 == y) || (knightPosX - 1 == x && knightPosY - 2 == y);
     }
 
-    function initGrid() {
-        //assign handlers to keep playing and try again buttons
-        $('a.keep-playing-button').on('click', function(e) {
-            initGrid();
-        });
-        $('a.retry-button').on('click', function(e) {
-            initGrid();
-        });
-        $('a.restart-button').on('click', function(e) {
-            initGrid();
-        });
+    function initGrid(e) {
         $('.grid-container').children().remove();
         $('.game-message').removeClass('game-won');
         $('.game-message').removeClass('game-over');
