@@ -246,7 +246,8 @@ body {
     font-size: 17px;
 }
 .game-message .social {
-    margin-top: 40px;
+    display: inline-block;
+    margin-left: 40px;
 }
 .restart-button {
     display: inline-block;

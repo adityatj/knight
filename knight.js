@@ -27,8 +27,7 @@ $(document).ready(function() {
                 if (isValidKnightMove(goalPosX, goalPosY) && $('.fade-to-black').size() == BOARD_MAX * BOARD_MAX - 6) {
                     $('.game-message').addClass('game-won');
                     $('.game-message p').text('You Win!');
-                }
-                else
+                } else
                     return;
             }
             var cellId = el.attr('id');
@@ -43,7 +42,7 @@ $(document).ready(function() {
                 if (Math.abs(nextPosY - knightPosY) == 2)
                     transY = (transY > 0) ? transY : transY + 3;
                 var transAttr = 'translate(' + transY + 'px, ' + transX + 'px)';
-                if(!knight.parent().hasClass('red-tile'))
+                if (!knight.parent().hasClass('red-tile'))
                     knight.parent().addClass('fade-to-black');
                 knight.css({
                     '-webkit-transform': transAttr,
@@ -70,62 +69,64 @@ $(document).ready(function() {
         var onlyRedTile;
         var el = $('#pos-' + (knightPosX + 2) + '-' + (knightPosY + 1));
         if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
-            if(el.hasClass('red-tile'))
+            if (el.hasClass('red-tile'))
                 onlyRedTile = true;
             else
                 return true;
         }
         el = $('#pos-' + (knightPosX + 2) + '-' + (knightPosY - 1));
         if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
-            if(el.hasClass('red-tile'))
+            if (el.hasClass('red-tile'))
                 onlyRedTile = true;
             else
                 return true;
         }
         el = $('#pos-' + (knightPosX - 2) + '-' + (knightPosY + 1));
         if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
-            if(el.hasClass('red-tile'))
+            if (el.hasClass('red-tile'))
                 onlyRedTile = true;
             else
                 return true;
         }
         el = $('#pos-' + (knightPosX - 2) + '-' + (knightPosY - 1));
         if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
-            if(el.hasClass('red-tile'))
+            if (el.hasClass('red-tile'))
                 onlyRedTile = true;
             else
                 return true;
         }
         el = $('#pos-' + (knightPosX + 1) + '-' + (knightPosY + 2));
         if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
-            if(el.hasClass('red-tile'))
+            if (el.hasClass('red-tile'))
                 onlyRedTile = true;
             else
                 return true;
         }
         el = $('#pos-' + (knightPosX + 1) + '-' + (knightPosY - 2));
         if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
-            if(el.hasClass('red-tile'))
+            if (el.hasClass('red-tile'))
                 onlyRedTile = true;
             else
                 return true;
         }
         el = $('#pos-' + (knightPosX - 1) + '-' + (knightPosY + 2));
         if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
-            if(el.hasClass('red-tile'))
+            if (el.hasClass('red-tile'))
                 onlyRedTile = true;
             else
                 return true;
         }
         el = $('#pos-' + (knightPosX - 1) + '-' + (knightPosY - 2));
         if (el.size() > 0 && !(el.hasClass('fade-to-black') || el.hasClass('blank-grid-cell'))) {
-            if(el.hasClass('red-tile'))
+            if (el.hasClass('red-tile'))
                 onlyRedTile = true;
             else
                 return true;
         }
-        if(onlyRedTile && $('.fade-to-black').size() != BOARD_MAX * BOARD_MAX - 6) {
-            return false;
+        if (onlyRedTile) {
+            if ($('.fade-to-black').size() == BOARD_MAX * BOARD_MAX - 6) {
+                return true;
+            }
         }
         return false;
     }
@@ -136,13 +137,13 @@ $(document).ready(function() {
 
     function initGrid() {
         //assign handlers to keep playing and try again buttons
-        $('a.keep-playing-button').on('click', function(e){
+        $('a.keep-playing-button').on('click', function(e) {
             initGrid();
         });
-        $('a.retry-button').on('click', function(e){
+        $('a.retry-button').on('click', function(e) {
             initGrid();
         });
-        $('a.restart-button').on('click', function(e){
+        $('a.restart-button').on('click', function(e) {
             initGrid();
         });
         $('.grid-container').children().remove();
