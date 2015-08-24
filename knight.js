@@ -19,11 +19,22 @@ $(document).ready(function() {
     $('a.keep-playing-button').bind('click', initGrid);
     $('a.retry-button').bind('click', initGrid);
     $('a.restart-button').bind('click',initGrid);
-    
+
     function makeMove(e) {
 
         var el = $(e.target);
-        if (el.hasClass('tile-knight')) {
+        if($('.tile-knight').size() <= 0) {
+            var tile = $(knightTemplate), gridCell = el.closest('.grid-cell');
+            gridCell.removeClass('grid-cell-appear');
+            gridCell.addClass('red-tile');
+            gridCell.addClass('knight-appear');
+            gridCell.append(tile);
+            var cellId = el.attr('id');
+            knightPosX = parseInt(cellId.split('-')[1]);
+            knightPosY = parseInt(cellId.split('-')[2]);
+            goalPosX = 10 + knightPosX - 10;
+            goalPosY = 10 + knightPosY - 10;
+        } else if (el.hasClass('tile-knight')) {
             return;
         } else if (el.hasClass('fade-to-black')) {
             return;
@@ -145,14 +156,6 @@ $(document).ready(function() {
         $('.game-message').removeClass('game-won');
         $('.game-message').removeClass('game-over');
         $('.game-message p').text('');
-        knightPosX = getRand();
-        knightPosY = getRand();
-        while (blankCells.indexOf(knightPosX * 10 + knightPosY) != -1) {
-            knightPosX = getRand();
-            knightPosY = getRand();
-        }
-        goalPosX = 10 + knightPosX - 10;
-        goalPosY = 10 + knightPosY - 10;
         var gridContainer = $('.grid-container');
         for (var i = 1; i <= BOARD_MAX; i++) {
             var gridRow = $(gridRowTemplate);
@@ -160,15 +163,11 @@ $(document).ready(function() {
                 var gridCell = $(gridCellTemplate),
                     tile = undefined;
                 gridCell.attr('id', 'pos-' + i + '-' + j);
-                if (knightPosX == i && knightPosY == j)
-                    tile = $(knightTemplate);
-                if (isDefined(tile)) {
-                    gridCell.addClass('red-tile');
-                    gridCell.addClass('knight-appear');
-                    gridCell.append(tile);
-                }
                 if (blankCells.indexOf(i * 10 + j) != -1)
                     gridCell.addClass('blank-grid-cell');
+                else {
+                    gridCell.addClass('grid-cell-appear');
+                }
                 gridRow.append(gridCell);
             }
             gridContainer.append(gridRow);
